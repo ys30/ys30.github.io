@@ -2,7 +2,7 @@
 <nav><div class="wrap"><a class="brand" href="../index.html">Yu Song</a><div class="links"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#research">Research</a><a href="../index.html#contact">Contact</a></div></div></nav>
 <header class="casehero"><div class="wrap"><a class="backlink" href="../index.html#work">← Selected work</a><div class="eyebrow" style="margin-top:28px">Climate economics · Physical risk · Adaptation</div><h1>Sector-Specific Climate Damage Functions</h1><p class="caselede">A six-GCM framework that translates climate hazards into sector-specific physical and economic damages while preserving model uncertainty and heterogeneous response mechanisms.</p><div class="case-meta"><div><small>Status</small><span>Earth’s Future · under revision · v25.13</span></div><div><small>Region</small><span>Beijing · Tianjin · Hebei</span></div><div><small>Climate</small><span>6 GCMs · 4 SSPs</span></div><div><small>Domains</small><span>Agriculture · grids · roads · concrete · labor</span></div></div></div></header>
 <main><section><div class="wrap casebody"><div class="eyebrow">Key results</div><div class="result-grid"><div class="result-stat"><b>¥23.0B</b><span>Hebei road loss</span><small>SSP585 · 2041–2050 median annual</small></div><div class="result-stat"><b>¥3.24B</b><span>Beijing concrete loss</span><small>SSP585 · 2041–2050 median additional</small></div><div class="result-stat"><b>12.28%</b><span>Tianjin high-intensity labor loss</span><small>SSP585 · 2050 median</small></div></div>
-<div class="story-carousel">
+<div class="story-carousel" tabindex="0">
 <input type="radio" name="damage-story" id="dmg1" checked><input type="radio" name="damage-story" id="dmg2"><input type="radio" name="damage-story" id="dmg3">
 <div class="story-stage">
 <div class="story-slide s1"><div class="story-result"><b>¥23.0B</b><strong>Hebei road loss</strong><small>SSP585 · 2041–2050 median annual · manuscript Figure 3</small></div></div>
@@ -12,11 +12,23 @@
 <div class="story-copy c1"><div><div class="eyebrow">01 / 03 · Roads</div><h3>Road infrastructure</h3><p>Under SSP585 in 2041–2050, median annual road losses reach ¥4.228B in Beijing, ¥3.655B in Tianjin and ¥23.003B in Hebei. The positive-part specification also reduces decade-mean damage relative to the former absolute-change formulation.</p></div></div>
 <div class="story-copy c2"><div><div class="eyebrow">02 / 03 · Concrete</div><h3>Climate-driven concrete deterioration</h3><p>Median additional concrete losses under SSP585 in 2041–2050 are ¥3.237B in Beijing, ¥0.929B in Tianjin and ¥2.581B in Hebei, illustrating a damage mechanism distinct from road infrastructure.</p></div></div>
 <div class="story-copy c3"><div><div class="eyebrow">03 / 03 · Labor</div><h3>Heat-related labor workability</h3><p>By 2050 under SSP585, high-intensity workability losses reach 9.63% in Beijing, 12.28% in Tianjin and 9.72% in Hebei, with high-intensity work consistently more exposed.</p></div></div>
-<div class="story-controls"><div class="story-dots"><label class="d1" for="dmg1" aria-label="Roads"></label><label class="d2" for="dmg2" aria-label="Concrete"></label><label class="d3" for="dmg3" aria-label="Labor"></label></div><div class="story-nav"><label for="dmg3" aria-label="Previous">‹</label><label for="dmg2" aria-label="Next">›</label></div></div>
-</div>
+<div class="story-controls"><div class="story-dots"><label class="d1" for="dmg1" aria-label="Roads"></label><label class="d2" for="dmg2" aria-label="Concrete"></label><label class="d3" for="dmg3" aria-label="Labor"></label></div><div class="story-nav"><button type="button" data-prev aria-label="Previous figure">‹</button><button type="button" data-next aria-label="Next figure">›</button></div></div></div>
 <h2>Road infrastructure</h2><p>Under SSP585 in 2041–2050, median annual road losses reach ¥4.228 billion in Beijing, ¥3.655 billion in Tianjin and ¥23.003 billion in Hebei. The six-GCM ranges are especially wide in Hebei. A positive-part road specification reduces decade-mean damages by 22.8–50.0% relative to the former absolute-change formulation, with a mean reduction of 39.2%.</p>
 <h2>Concrete & labor</h2><p>SSP585 median additional concrete losses in 2041–2050 are ¥3.237 billion in Beijing, ¥0.929 billion in Tianjin and ¥2.581 billion in Hebei. For labor, 2050 high-intensity workability losses are 9.63%, 12.28% and 9.72%, respectively, with high-intensity work consistently more exposed than medium- and low-intensity work.</p>
 <div class="callout"><div class="eyebrow">Methodological contribution</div><p>Each of six GCM projections is propagated separately through nonlinear sector-specific damage functions before ensemble medians and ranges are summarized. This avoids hiding nonlinear responses behind climate-input averaging and makes uncertainty part of the result.</p></div>
 <h2>Why sector detail matters</h2><p>Agriculture can show mixed gains and losses and non-monotonic scenario ordering, while roads, concrete and labor respond through different physical mechanisms. Keeping these functions separate exposes adaptation priorities that a single aggregate damage curve can hide.</p>
 <h2>From damage functions to the wider economy</h2><p>The direct shocks from this framework feed into the companion <a href="cge-regional-economic-impacts.html"><strong>Climate Change & Regional Economic Impacts</strong></a> study, where a recursive-dynamic CGE model traces impacts through production networks, prices, investment and labor.</p>
-<div class="case-nav"><a href="beccs-scotland.html">← BECCS Spatial Siting in Scotland</a><a href="cge-regional-economic-impacts.html">CGE Regional Economic Impacts →</a></div></div></section></main><footer><div class="wrap">© 2026 Yu Song · Environmental & Climate Data Scientist</div></footer></body></html>
+<div class="case-nav"><a href="beccs-scotland.html">← BECCS Spatial Siting in Scotland</a><a href="cge-regional-economic-impacts.html">CGE Regional Economic Impacts →</a></div></div></section></main><footer><div class="wrap">© 2026 Yu Song · Environmental & Climate Data Scientist</div></footer><script>
+document.querySelectorAll('.story-carousel').forEach(function(root){
+ var radios=[].slice.call(root.querySelectorAll('input[type="radio"]'));
+ var prev=root.querySelector('[data-prev]'), next=root.querySelector('[data-next]');
+ var start=0;
+ function index(){return Math.max(0,radios.findIndex(function(r){return r.checked}))}
+ function go(step){radios[(index()+step+radios.length)%radios.length].checked=true}
+ if(prev)prev.addEventListener('click',function(){go(-1)});
+ if(next)next.addEventListener('click',function(){go(1)});
+ root.addEventListener('touchstart',function(e){start=e.changedTouches[0].clientX},{passive:true});
+ root.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-start;if(Math.abs(dx)>45)go(dx<0?1:-1)},{passive:true});
+ root.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1)});
+});
+</script></body></html>
