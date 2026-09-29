@@ -27,3 +27,6 @@
 #dmg1:checked~.story-stage .s1,#dmg2:checked~.story-stage .s2,#dmg3:checked~.story-stage .s3,#dmg1:checked~.c1,#dmg2:checked~.c2,#dmg3:checked~.c3,#cge1:checked~.story-stage .s1,#cge2:checked~.story-stage .s2,#cge3:checked~.story-stage .s3,#cge1:checked~.c1,#cge2:checked~.c2,#cge3:checked~.c3{display:flex}
 #dmg1:checked~.story-controls .d1,#dmg2:checked~.story-controls .d2,#dmg3:checked~.story-controls .d3,#cge1:checked~.story-controls .d1,#cge2:checked~.story-controls .d2,#cge3:checked~.story-controls .d3{background:var(--dark);transform:scale(1.2)}
 @media(max-width:760px){.story-slide{min-height:270px;padding:16px}.story-copy h3{font-size:21px}}
+
+#beccs1:checked~.story-stage .s1,#beccs2:checked~.story-stage .s2,#beccs3:checked~.story-stage .s3,#beccs1:checked~.c1,#beccs2:checked~.c2,#beccs3:checked~.c3{display:flex}
+#beccs1:checked~.story-controls .d1,#beccs2:checked~.story-controls .d2,#beccs3:checked~.story-controls .d3{background:var(--dark);transform:scale(1.2)}
