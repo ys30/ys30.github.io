@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Environmental exposure intelligence for healthy communities</title>
+<desc id="desc">Commercial case-study dashboard for a China-wide CHARLS analysis integrating satellite greenness, air pollution, GIS and longitudinal modeling.</desc>
+<defs><linearGradient id="hero" x1="0" x2="1"><stop stop-color="#edf7f0"/><stop offset="1" stop-color="#eaf3f8"/></linearGradient><linearGradient id="kpi" x1="0" x2="1"><stop stop-color="#eff8f1"/><stop offset="1" stop-color="#f8fbf9"/></linearGradient></defs>
+<rect width="1600" height="900" fill="#f7faf8"/>
+<style>.t{font-family:Arial,sans-serif;fill:#102f3c}.m{font-family:Arial,sans-serif;fill:#587078}.h{font-weight:700}.panel{fill:#fff;stroke:#dce8e2;stroke-width:2}.green{fill:#147548}.blue{fill:#17699b}.orange{fill:#cf7a25}.sm{font-size:16px}.lab{font-size:18px}.big{font-size:48px;font-weight:700}.cap{font-size:15px}.line{stroke:#d8e4de;stroke-width:2}.ci{stroke:#147548;stroke-width:5;stroke-linecap:round}.ci2{stroke:#17699b;stroke-width:5;stroke-linecap:round}.ci3{stroke:#9a6bb0;stroke-width:5;stroke-linecap:round}.zero{stroke:#83958c;stroke-width:2;stroke-dasharray:6 6}</style>
+<rect x="0" y="0" width="1600" height="190" fill="url(#hero)"/>
+<text x="55" y="62" class="t h" font-size="42">Environmental Exposure Intelligence for Healthy Communities</text>
+<text x="55" y="103" class="t" font-size="23">Turning satellite, air-quality and longitudinal health data into decision-ready evidence</text>
+<text x="55" y="142" class="m" font-size="18">China-wide CHARLS case study · Remote sensing · GIS · Environmental health · Longitudinal modeling</text>
+<rect x="55" y="158" width="1490" height="72" rx="18" class="panel"/>
+<text x="85" y="188" class="green h lab">01  REMOTE SENSING</text><text x="85" y="213" class="m sm">MODIS NDVI</text>
+<text x="355" y="188" class="blue h lab">02  AIR QUALITY</text><text x="355" y="213" class="m sm">City PM₂.₅</text>
+<text x="625" y="188" class="t h lab">03  GIS LINKAGE</text><text x="625" y="213" class="m sm">City × urban/rural exposure</text>
+<text x="925" y="188" class="t h lab">04  LONGITUDINAL DATA</text><text x="925" y="213" class="m sm">CHARLS person-waves</text>
+<text x="1260" y="188" class="orange h lab">05  EVIDENCE</text><text x="1260" y="213" class="m sm">Robustness + sensitivity</text>
+
+<rect x="55" y="255" width="575" height="395" rx="24" class="panel"/>
+<text x="85" y="300" class="t h" font-size="26">National-scale exposure pipeline</text>
+<text x="85" y="329" class="m sm">A scalable workflow for converting environmental data into health evidence</text>
+<rect x="85" y="365" width="515" height="58" rx="15" fill="#e8f4eb"/><text x="110" y="400" class="green h lab">Satellite greenness</text><text x="310" y="400" class="m sm">MOD13A3 · monthly · 1 km · 2005–2020</text>
+<path d="M340 423v24" stroke="#789087" stroke-width="3"/>
+<rect x="85" y="447" width="515" height="58" rx="15" fill="#eef5f8"/><text x="110" y="482" class="blue h lab">QA + land-use context</text><text x="330" y="482" class="m sm">Pixel QA · MCD12Q1 · urban/non-urban</text>
+<path d="M340 505v24" stroke="#789087" stroke-width="3"/>
+<rect x="85" y="529" width="515" height="58" rx="15" fill="#f5f7f6"/><text x="110" y="564" class="t h lab">Exposure features</text><text x="295" y="564" class="m sm">City/context NDVI + city-level PM₂.₅</text>
+<path d="M340 587v24" stroke="#789087" stroke-width="3"/>
+<rect x="85" y="611" width="515" height="26" rx="13" fill="#f8eadc"/><text x="342" y="630" text-anchor="middle" class="orange h sm">Link to CHARLS → longitudinal CESD-10 models</text>
+
+<rect x="655" y="255" width="890" height="220" rx="24" class="panel"/>
+<text x="685" y="300" class="t h" font-size="26">Key signals</text>
+<rect x="685" y="325" width="250" height="125" rx="18" fill="url(#kpi)"/><text x="710" y="355" class="m sm">PRIMARY NDVI EFFECT</text><text x="710" y="405" class="green big">−0.477</text><text x="710" y="433" class="m cap">CESD-10 per +0.1 NDVI</text>
+<rect x="955" y="325" width="250" height="125" rx="18" fill="#f1f6fa"/><text x="980" y="355" class="m sm">ANALYTIC SCALE</text><text x="980" y="405" class="blue big">63,004</text><text x="980" y="433" class="m cap">person-wave observations</text>
+<rect x="1225" y="325" width="290" height="125" rx="18" fill="#fbf4ea"/><text x="1250" y="355" class="m sm">PRIMARY EVIDENCE</text><text x="1250" y="405" class="orange big">p=.0085</text><text x="1250" y="433" class="m cap">95% CI −0.831 to −0.122</text>
+
+<rect x="655" y="500" width="890" height="150" rx="24" class="panel"/>
+<text x="685" y="540" class="t h" font-size="23">Robustness at a glance</text>
+<line x1="1240" y1="560" x2="1240" y2="630" class="zero"/>
+<text x="685" y="575" class="m sm">Primary model</text><line x1="980" y1="570" x2="1195" y2="570" class="ci"/><circle cx="1090" cy="570" r="9" class="green"/><text x="1270" y="576" class="green h sm">−0.477</text>
+<text x="685" y="605" class="m sm">City-specific trend</text><line x1="930" y1="600" x2="1195" y2="600" class="ci2"/><circle cx="1045" cy="600" r="9" class="blue"/><text x="1270" y="606" class="blue h sm">−0.630</text>
+<text x="685" y="635" class="m sm">+ household consumption</text><line x1="1060" y1="630" x2="1290" y2="630" class="ci3"/><circle cx="1175" cy="630" r="9" fill="#9a6bb0"/><text x="1320" y="636" class="m h sm">−0.231</text>
+
+<rect x="55" y="680" width="1490" height="160" rx="24" class="panel"/>
+<text x="85" y="722" class="t h" font-size="25">From environmental data to decision-ready evidence</text>
+<line x1="100" y1="770" x2="1470" y2="770" class="line"/>
+<circle cx="135" cy="770" r="18" class="green"/><text x="135" y="776" text-anchor="middle" fill="#fff" class="h sm">1</text><text x="105" y="815" class="t h sm">Acquire</text><text x="105" y="836" class="m cap">satellite + PM₂.₅</text>
+<circle cx="390" cy="770" r="18" class="green"/><text x="390" y="776" text-anchor="middle" fill="#fff" class="h sm">2</text><text x="350" y="815" class="t h sm">Engineer</text><text x="350" y="836" class="m cap">QA + spatial features</text>
+<circle cx="650" cy="770" r="18" class="blue"/><text x="650" y="776" text-anchor="middle" fill="#fff" class="h sm">3</text><text x="610" y="815" class="t h sm">Integrate</text><text x="610" y="836" class="m cap">health + environment</text>
+<circle cx="915" cy="770" r="18" class="blue"/><text x="915" y="776" text-anchor="middle" fill="#fff" class="h sm">4</text><text x="875" y="815" class="t h sm">Model</text><text x="875" y="836" class="m cap">spatial + temporal controls</text>
+<circle cx="1180" cy="770" r="18" class="orange"/><text x="1180" y="776" text-anchor="middle" fill="#fff" class="h sm">5</text><text x="1135" y="815" class="t h sm">Validate</text><text x="1135" y="836" class="m cap">sensitivity analyses</text>
+<circle cx="1435" cy="770" r="18" class="orange"/><text x="1435" y="776" text-anchor="middle" fill="#fff" class="h sm">6</text><text x="1380" y="815" class="t h sm">Communicate</text><text x="1380" y="836" class="m cap">clear evidence</text>
+<text x="55" y="880" class="m cap">Observational association. Higher CESD-10 indicates more depressive symptoms. Technical model details and exploratory lag results are documented in the project repository.</text>
+</svg>
