@@ -30,3 +30,7 @@
 
 #beccs1:checked~.story-stage .s1,#beccs2:checked~.story-stage .s2,#beccs3:checked~.story-stage .s3,#beccs1:checked~.c1,#beccs2:checked~.c2,#beccs3:checked~.c3{display:flex}
 #beccs1:checked~.story-controls .d1,#beccs2:checked~.story-controls .d2,#beccs3:checked~.story-controls .d3{background:var(--dark);transform:scale(1.2)}
+
+/* Pedestrian safety carousel */
+#ped1:checked~.story-stage .s1,#ped2:checked~.story-stage .s2,#ped3:checked~.story-stage .s3,#ped1:checked~.c1,#ped2:checked~.c2,#ped3:checked~.c3{display:flex}
+#ped1:checked~.story-controls .d1,#ped2:checked~.story-controls .d2,#ped3:checked~.story-controls .d3{background:var(--dark);transform:scale(1.2)}
