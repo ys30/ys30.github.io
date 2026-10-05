@@ -46,3 +46,6 @@
 
 /* Final compact personal-photo treatment */
 .hero-photo{width:138px;height:104px;aspect-ratio:4/3;border-radius:15px;border:3px solid var(--paper);transform:rotate(1deg);object-fit:cover}.personal-timeline{align-self:start}.household-time{display:flex;align-items:center;justify-content:space-between;gap:18px}.household-time>div{min-width:0}.cat-thumb{width:104px;height:104px;flex:0 0 104px;object-fit:cover;border-radius:15px;border:1px solid var(--line)}.about-small-photo{display:none}@media(max-width:760px){.hero-photo{width:120px;height:90px}.household-time{align-items:flex-start}.cat-thumb{width:88px;height:88px;flex-basis:88px}}
+
+/* Personal photos — small accents only */
+.hero-with-photo{display:block;position:relative}.hero-copy{max-width:960px}.hero-photo{position:absolute;right:28px;top:8px;width:116px!important;height:87px!important;object-fit:cover!important;border-radius:14px!important;border:3px solid var(--paper)!important;box-shadow:0 6px 18px rgba(19,37,30,.10)!important;transform:rotate(1deg)!important}.about-left-photo{display:block;width:118px;height:118px;object-fit:cover;border-radius:16px;border:1px solid var(--line);margin-top:22px}.cat-thumb{display:none!important}@media(max-width:760px){.hero-photo{position:static;width:104px!important;height:78px!important;margin-top:22px}.about-left-photo{width:104px;height:104px}}
