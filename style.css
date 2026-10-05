@@ -43,3 +43,6 @@
 
 /* Compact personal photos */
 .hero-with-photo{position:relative}.hero-copy{max-width:960px}.hero-photo{position:absolute;right:28px;top:0;width:112px;height:112px;object-fit:cover;border-radius:22px;border:4px solid var(--paper);box-shadow:0 8px 24px rgba(19,37,30,.12);transform:rotate(2deg)}.about-small-photo{display:block;width:150px;height:150px;object-fit:cover;border-radius:18px;border:1px solid var(--line);margin-top:24px}.about-intro,.about-life,.about-hiking,.about-cat{display:none}@media(max-width:760px){.hero-photo{position:static;width:90px;height:90px;margin-top:24px}.about-small-photo{width:120px;height:120px}}
+
+/* Final compact personal-photo treatment */
+.hero-photo{width:138px;height:104px;aspect-ratio:4/3;border-radius:15px;border:3px solid var(--paper);transform:rotate(1deg);object-fit:cover}.personal-timeline{align-self:start}.household-time{display:flex;align-items:center;justify-content:space-between;gap:18px}.household-time>div{min-width:0}.cat-thumb{width:104px;height:104px;flex:0 0 104px;object-fit:cover;border-radius:15px;border:1px solid var(--line)}.about-small-photo{display:none}@media(max-width:760px){.hero-photo{width:120px;height:90px}.household-time{align-items:flex-start}.cat-thumb{width:88px;height:88px;flex-basis:88px}}
