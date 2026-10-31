@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Western US Energy Transition Modeling — PyPSA | Yu Song</title>
+<meta name="description" content="Verified 2024 CISO/BPAT PyPSA engineering baselines, official EIA-930 data-quality audits, BPAT wind cross-source reconciliation and synthetic network dispatch tests.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav><div class="wrap"><a class="brand" href="../index.html">Yu Song</a><div class="links"><a href="../index.html#work">Selected Work</a><a href="../projects.html">Projects</a><a href="../publications.html">Publications</a><a href="../index.html#contact">Contact</a></div></div></nav>
+<main>
+<section class="casehero"><div class="wrap">
+<div class="eyebrow">Energy systems · Reproducible research · Python · PyPSA · HiGHS</div>
+<h1>Western US Energy Transition Modeling</h1>
+<p class="caselede">Engineering a reproducible energy-system modeling and empirical validation pipeline: hourly dispatch prototypes, official EIA data integration, balancing-authority quality audits and cross-source wind accounting.</p>
+<div class="actions"><a class="btn primary" href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA">Code &amp; reproducibility ↗</a><a class="btn" href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/actions">Verified CI &amp; artifacts ↗</a></div>
+</div></section>
+<section><div class="wrap">
+<h2>Four delivered workstreams</h2>
+<div class="grid">
+<article class="card"><div class="cardbody"><div class="kicker">01 · Engineering</div><h3>Reproducible Python pipelines</h3><p>Installable package, tested EIA ingestion, provenance-conscious audits, automated GitHub Actions and numerical acceptance records.</p></div></article>
+<article class="card"><div class="cardbody"><div class="kicker">02 · Simulation</div><h3>Full-year PyPSA prototypes</h3><p>Separate, gas-only CISO and BPAT engineering models at 8,784 hourly snapshots each; evaluated against observed EIA-930 total net generation.</p></div></article>
+<article class="card"><div class="cardbody"><div class="kicker">03 · Data QA</div><h3>Balancing-authority audits</h3><p>Official EIA-930 demand, net generation and interchange checks, with exact UTC missing windows, balance diagnostics and calibration eligibility screening.</p></div></article>
+<article class="card"><div class="cardbody"><div class="kicker">04 · Empirical reconciliation</div><h3>BPAT wind source populations</h3><p>Linked EIA-923 generation, EIA-860 plant mapping, EIA-930 hourly wind and EIA-930A reporting inventories to identify an unresolved reporting-population discrepancy.</p></div></article>
+</div>
+<h2>Selected verified 2024 results</h2>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;text-align:left">
+<thead><tr><th style="padding:12px;border-bottom:1px solid #cbd5d1">Indicator</th><th style="padding:12px;border-bottom:1px solid #cbd5d1">CISO</th><th style="padding:12px;border-bottom:1px solid #cbd5d1">BPAT</th></tr></thead>
+<tbody>
+<tr><td style="padding:12px;border-bottom:1px solid #e2e8e5">2024 model hours</td><td style="padding:12px;border-bottom:1px solid #e2e8e5">8,784</td><td style="padding:12px;border-bottom:1px solid #e2e8e5">8,784</td></tr>
+<tr><td style="padding:12px;border-bottom:1px solid #e2e8e5">Observed NG comparison hours</td><td style="padding:12px;border-bottom:1px solid #e2e8e5">8,760</td><td style="padding:12px;border-bottom:1px solid #e2e8e5">8,784</td></tr>
+<tr><td style="padding:12px;border-bottom:1px solid #e2e8e5">Gas-only model vs total observed NG MAE</td><td style="padding:12px;border-bottom:1px solid #e2e8e5">4,190.52 MW</td><td style="padding:12px;border-bottom:1px solid #e2e8e5">2,463.95 MW</td></tr>
+<tr><td style="padding:12px;border-bottom:1px solid #e2e8e5">Missing EIA-930 total interchange (TI)</td><td style="padding:12px;border-bottom:1px solid #e2e8e5">312 h</td><td style="padding:12px;border-bottom:1px solid #e2e8e5">1 h</td></tr>
+<tr><td style="padding:12px">Historical interchange calibration screen</td><td style="padding:12px">Not passed</td><td style="padding:12px">Not passed</td></tr>
+</tbody></table></div>
+<p>The hourly pilot is a <strong>gas-only screening model</strong>, while EIA-930 NG is total observed BA generation. Its differences are diagnostic mismatches, not historical calibration accuracy. Source coverage and accounting checks are published in the <a href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/blob/main/docs/verified_2024_two_ba_hourly_numerical_acceptance.md">numerical acceptance record</a> and <a href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/blob/main/docs/eia930_2024_interchange_diagnostic_findings.md">BA audit</a>.</p>
+<h2>Wind accounting: a useful research finding</h2>
+<p>The 2024 EIA-923 generation of 28 wind plants mapped to BPAT by EIA-860 totals <strong>8,820,435.41 MWh</strong>; EIA-930 hourly BPAT wind totals <strong>6,839,734 MWh</strong>. The descriptive difference is <strong>1,980,701.41 MWh</strong>. The EIA-930A reporting-population audit found <strong>20 of the 28 plant IDs</strong> represented in BPAT's Schedule 2 inventory and <strong>8 absent</strong>, with the latter corresponding to 1,802,779 MWh of EIA-923 generation.</p>
+<p>This provides evidence that plant/BA reporting populations may differ. It <strong>does not</strong> prove that those 1,802,779 MWh explain an equivalent portion of the gap: EIA-930A records generators, while this comparison is plant-level, and operational reporting boundaries may differ. See the <a href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/blob/main/docs/verified_bpat_wind_eia930a_population_2024.md">official population audit</a> and <a href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/blob/main/docs/verified_bpat_wind_end_to_end_official_2024.md">cross-source reconciliation</a>.</p>
+<h2>PyPSA network-optimization capability</h2>
+<p>A separate <strong>synthetic</strong> two-bus PyPSA/HiGHS linear optimization tests congestion and dispatch: 25, 50 and 125 MW line ratings yield 25, 50 and 100 MW solved flows and 75, 50 and 0 MW of backup generation. This demonstrates solver behavior, <strong>not</strong> verified historical WECC branch flows or actual system savings. <a href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/blob/main/docs/verified_synthetic_ac_line_sweep.md">Review the solver evidence.</a></p>
+<h2>Methods and technical skills</h2>
+<p><strong>Python · pandas · PyPSA · HiGHS · hourly time-series alignment · EIA REST APIs · generator/plant identifier reconciliation · missingness analysis · numerical verification · automated CI/CD · reproducible research.</strong></p>
+<h2>Limitations and next phase</h2>
+<p>These delivered components support a research-engineering portfolio, not a calibrated interconnected western U.S. power-system model. Verified 2024 WECC line topology, electrical impedance and thermal ratings, accurate BA operational accounting and physical historical validation remain outstanding. Future work will construct a source-authenticated network and rerun renewable/storage scenarios only after those evidence gates are met.</p>
+<div class="actions"><a class="btn primary" href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA">Explore the GitHub repository ↗</a><a class="btn" href="../projects.html">All projects</a></div>
+</div></section>
+</main><footer><div class="wrap">© 2026 Yu Song · Environmental &amp; Climate Data Scientist</div></footer>
+</body></html>
