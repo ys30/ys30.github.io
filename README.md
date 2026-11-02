@@ -17,6 +17,8 @@ Source repository for my environmental and climate data science portfolio.
 
 The live site presents case studies including climate-risk decision support, environmental exposure analysis, BECCS spatial siting, sector-specific climate damage functions, ecological machine learning, and extreme-weather analytics.
 
+**Updated ecological modeling case study:** [Matched XGBoost / MaxEnt / Bayesian SDM benchmark](https://ys30.github.io/projects/ecological-sdm-xgboost.html) — 1,167 NSW forest plots, 23 matched taxon–fold cells, feature-representation sensitivity and retrospective rare-taxon prioritization. The associated manuscript is maintained privately.
+
 ## Technical toolkit
 
 Python · R · SQL · GIS · Remote Sensing · Statistical Modeling · Machine Learning · R Shiny
