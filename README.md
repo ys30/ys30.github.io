@@ -19,6 +19,8 @@ The live site presents case studies including climate-risk decision support, env
 
 **Updated ecological modeling case study:** [Matched XGBoost / MaxEnt / Bayesian SDM benchmark](https://ys30.github.io/projects/ecological-sdm-xgboost.html) — 1,167 NSW forest plots, 23 matched taxon–fold cells, feature-representation sensitivity and retrospective rare-taxon prioritization. The associated manuscript is maintained privately.
 
+**Updated energy-systems research engineering case:** [Western US Energy Transition Modeling](https://ys30.github.io/projects/energy-transition-analysis-pypsa.html) — independent 2024 EIA-930/860/923 data-quality and source-population audits, CISO/BPAT 8,784-hour gas-only screening models, and a [CI-verified 35-zone, 24-hour NARIS planning-Link PyPSA/HiGHS integration](https://github.com/ys30/Energy-Transition-Analysis-PyPSA/blob/main/docs/verified_naris35_24h_synthetic_load_opf.md) (131 directional interfaces, 42,840 MWh synthetic load and balanced generation, 816 MWh hypothetical local backup in isolated zone p19). The network experiment uses synthetic demand/generation/cost inputs and **does not constitute calibrated historical Western-US operation**. [Passing network CI](https://github.com/ys30/Energy-Transition-Analysis-PyPSA/actions/runs/41718188340).
+
 ## Technical toolkit
 
 Python · R · SQL · GIS · Remote Sensing · Statistical Modeling · Machine Learning · R Shiny
