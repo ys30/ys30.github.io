@@ -26,7 +26,17 @@
 <h2>3. What changes the interpretation?</h2>
 <p><strong>Feature representation:</strong> Fold-local categorical encoding produced similar full-feature XGBoost discrimination. Removing taxon identity sharply reduced pooled-model performance, but also changed the prediction task; it cannot be interpreted as a pure encoding effect.</p>
 <p><strong>Model selection:</strong> The archived spatial XGBoost benchmark used a fixed 300-round configuration, not nested spatial hyperparameter tuning. Bayesian convergence checks passed in independent longer-chain fits, while the matched comparison uses archived original-fit predictions.</p>
-<h2>4. Can predictions make rare-taxon surveys more efficient?</h2>
+<h2>4. Bayesian model-specification robustness</h2>
+<p>We extended the hierarchical Bayesian pipeline with quadratic rainfall and temperature responses and a separate nonpooled specification. The extensions were assessed using the same five geographic folds—not a second independent dataset. AUC/AP are defined for 30 taxon–fold cells in the expanded Bayesian analysis; the original three-pipeline comparison uses 23 matched cells.</p>
+<div style="overflow-x:auto"><table><thead><tr><th>Quadratic Bayesian vs archived Bayesian</th><th>Original 23 matched cells</th><th>Expanded 30 AUC/AP cells</th></tr></thead><tbody>
+<tr><td>Mean paired ΔROC AUC</td><td><strong>+0.0453</strong></td><td>+0.0378</td></tr>
+<tr><td>Mean paired Δaverage precision</td><td><strong>+0.0831</strong></td><td>+0.0813</td></tr>
+<tr><td>Mean paired ΔBrier score</td><td><strong>−0.0118</strong></td><td>−0.0068 (40 cells)</td></tr>
+</tbody></table></div>
+<p><strong>Probability quality:</strong> Pooled out-of-fold Brier score improved from 0.06084 to 0.05404, and 10-bin expected calibration error from 0.01985 to 0.01255. The mean five-nearest-neighbor residual Moran's I fell from 0.341 to 0.291, although substantial positive spatial autocorrelation remained. These are internal spatial-holdout diagnostics, not external geographic validation.</p>
+<p><strong>Influence check:</strong> Excluding taxon nsw18, the quadratic model retained a mean paired AUC gain of +0.0286 and AP gain of +0.0663. Improvements were heterogeneous across taxa. The nonpooled variant did not show comparable overall predictive gains, despite improved top-25 retrieval for one rare taxon.</p>
+<p><strong>Validation limitation:</strong> The 30 expanded taxon–fold cells overlap with the original 23 and cannot be counted as an independent replication. Additional spatial partitioning or independent-region validation remains future work. <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/BAYESIAN_EXTENSION_CONSOLIDATED_VERIFIED.md">Verified extension results and methods</a>.</p>
+<h2>5. Can predictions make rare-taxon surveys more efficient?</h2>
 <p><strong>The practical question:</strong> When a taxon has too few detections for reliable fold-level ROC AUC, can a model rank a limited number of plots to recover more of the recorded detections than random selection? This is a <strong>retrospective, fixed-budget prioritization test</strong>—not a new occupancy model or a prospective field trial.</p>
 <p>For each of the five geographic folds, the Bayesian model ranked the held-out plots. We selected the top 10, 25 or 50 per fold and counted recorded detections captured. The random benchmark uses each fold's actual prevalence and the same screening budget. A top-25 strategy screens <strong>125 of 1,167 plots (10.7%)</strong> across folds.</p>
 <div style="overflow-x:auto"><table><thead><tr><th>Anonymous taxon</th><th>Recorded detections</th><th>Top-25 captured</th><th>Recall</th><th>Expected random captured</th><th>Enrichment</th></tr></thead><tbody>
