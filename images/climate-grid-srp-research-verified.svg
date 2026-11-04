@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="485" viewBox="0 0 1000 485" role="img" aria-labelledby="t d">
+<title id="t">Verified SRP ERA5 site exposure and matched PyPSA weather-proxy sensitivity</title>
+<desc id="d">Left: identical eight natural gas plants have January mean 11.90 Celsius and July mean 37.00 Celsius; the identical coal plant has January mean 2.09 and July mean 26.26 Celsius. Right: matched PyPSA model artificial coverage gaps, 113630 MWh fixed wind, 114696 ERA5 low-threshold, 120557 ERA5 reference, and 125450 ERA5 high-threshold. These are not observed outages.</desc>
+<rect width="1000" height="485" fill="#f8faf9" rx="18"/>
+<text x="32" y="42" fill="#163b32" font-family="Arial,sans-serif" font-weight="700" font-size="23">Climate data → power-system sensitivity</text>
+<text x="32" y="69" fill="#57726a" font-family="Arial,sans-serif" font-size="14">SRP · 2024 · ERA5 reanalysis at EIA-860 plant locations · source-audited research</text>
+<rect x="22" y="88" width="464" height="325" rx="13" fill="#fff" stroke="#e3eae6"/>
+<text x="42" y="118" fill="#163b32" font-family="Arial,sans-serif" font-size="18" font-weight="700">Same-site mean air temperature</text>
+<text x="42" y="141" fill="#57726a" font-family="Arial,sans-serif" font-size="12">8 gas sites (6,638.6 MW); 1 coal site (821.8 MW)</text>
+<line x1="110" y1="352" x2="444" y2="352" stroke="#b9c9c2"/>
+<line x1="110" y1="171" x2="110" y2="352" stroke="#b9c9c2"/>
+<g font-family="Arial,sans-serif" fill="#607970" font-size="11">
+<text x="85" y="356">0°</text><text x="80" y="311">10°</text><text x="80" y="266">20°</text><text x="80" y="220">30°</text><text x="80" y="175">40°</text>
+</g>
+<g stroke="#edf2ef"><line x1="110" y1="307" x2="444" y2="307"/><line x1="110" y1="262" x2="444" y2="262"/><line x1="110" y1="216" x2="444" y2="216"/><line x1="110" y1="171" x2="444" y2="171"/></g>
+<rect x="165" y="298" width="51" height="54" rx="4" fill="#8ccabb"/>
+<rect x="222" y="184" width="51" height="168" rx="4" fill="#147763"/>
+<rect x="320" y="343" width="51" height="9" rx="4" fill="#8ccabb"/>
+<rect x="377" y="233" width="51" height="119" rx="4" fill="#147763"/>
+<g font-family="Arial,sans-serif" fill="#163b32" font-size="12" font-weight="700" text-anchor="middle">
+<text x="190" y="290">11.90°</text><text x="247" y="177">37.00°</text><text x="345" y="335">2.09°</text><text x="402" y="225">26.26°</text>
+<text x="219" y="374">Gas</text><text x="374" y="374">Coal</text></g>
+<rect x="146" y="390" width="14" height="10" rx="2" fill="#8ccabb"/><text x="167" y="399" font-size="12" font-family="Arial,sans-serif" fill="#466459">January</text>
+<rect x="265" y="390" width="14" height="10" rx="2" fill="#147763"/><text x="285" y="399" font-size="12" font-family="Arial,sans-serif" fill="#466459">July</text>
+<rect x="501" y="88" width="477" height="325" rx="13" fill="#fff" stroke="#e3eae6"/>
+<text x="521" y="118" fill="#163b32" font-family="Arial,sans-serif" font-size="18" font-weight="700">Matched PyPSA artificial gap</text>
+<text x="521" y="141" fill="#57726a" font-family="Arial,sans-serif" font-size="12">744 January hours · identical non-wind scenario assumptions</text>
+<g font-family="Arial,sans-serif" font-size="13" fill="#264c40">
+<text x="523" y="193">Fixed 35%</text><text x="523" y="244">ERA5 low threshold</text><text x="523" y="295">ERA5 reference</text><text x="523" y="346">ERA5 high threshold</text>
+</g>
+<rect x="672" y="177" width="226" height="23" rx="4" fill="#b8cfc8"/>
+<rect x="672" y="228" width="228" height="23" rx="4" fill="#89bbac"/>
+<rect x="672" y="279" width="240" height="23" rx="4" fill="#218672"/>
+<rect x="672" y="330" width="250" height="23" rx="4" fill="#176c5a"/>
+<g font-family="Arial,sans-serif" font-size="12" fill="#193f34" font-weight="700">
+<text x="678" y="193">113,630</text><text x="678" y="244">114,696</text><text x="678" y="295" fill="#fff">120,557</text><text x="678" y="346" fill="#fff">125,450</text>
+</g>
+<text x="523" y="391" fill="#57726a" font-family="Arial,sans-serif" font-size="12">MWh · hypothetical modeled coverage gap, not observed EENS</text>
+<text x="32" y="449" fill="#526c62" font-family="Arial,sans-serif" font-size="13">Scope: annual EIA Plant-BA cohort; ERA5 weather-to-plant-performance calibration not yet completed.</text>
+<text x="32" y="470" fill="#526c62" font-family="Arial,sans-serif" font-size="12">Sources: Climate-Grid-Resilience-Research · verified January/July ERA5 and matched 744h PyPSA workflow artifacts</text>
+</svg>
