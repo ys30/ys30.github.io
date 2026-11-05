@@ -15,6 +15,8 @@ Source repository for my environmental and climate data science portfolio.
 
 ## Selected work
 
+**Western US Weather JAX — engineering and paper results:** [Portfolio case study](https://ys30.github.io/projects/western-us-weather-jax.html) · [GitHub experiment repository](https://github.com/ys30/Western-US-Weather-JAX). The site now separates (1) JAX GPU engineering on a real NVIDIA Tesla T4 (33.29 s initial GPU vs 258.51 s one CPU reference; 3.191155 K audited CPU/GPU test-RMSE parity), and (2) the ten-seed, four-case, four-arm reference × historical-climatology research analysis (negative interaction for 39/40 full-year and 30/40 observed-hot evaluations). The latter is a retrospective ERA5 working manuscript under preparation, not a published or operational-weather benchmark.
+
 The live site presents case studies including climate-risk decision support, environmental exposure analysis, BECCS spatial siting, sector-specific climate damage functions, ecological machine learning, and extreme-weather analytics.
 
 **Updated ecological modeling case study:** [Matched XGBoost / MaxEnt / Bayesian SDM benchmark](https://ys30.github.io/projects/ecological-sdm-xgboost.html) — 1,167 NSW forest plots, 23 matched taxon–fold cells, feature-representation sensitivity and retrospective rare-taxon prioritization. The associated manuscript is maintained privately.
