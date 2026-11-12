@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Western US electricity demand temporal provenance: ten states align with two or three hour nonwrapping shifts while Idaho external geographic shares differ from numerical mixture weights">
+<style>text{font-family:Inter,'Segoe UI',Arial,sans-serif}.ey{fill:#589f9b;font-size:15px;letter-spacing:3px;font-weight:700}.title{fill:#f3f6f4;font-size:39px;font-weight:750;letter-spacing:-.8px}.sub{fill:#aac0bf;font-size:18px}.panel{fill:#eff4f3;font-size:21px;font-weight:740}.lab{fill:#c5d5d4;font-size:17px;font-weight:600}.num{fill:#e7f0ec;font-size:15px;font-weight:650}.pct{fill:#f7f8f3;font-size:17px;font-weight:800}.note{fill:#a8bfbd;font-size:14px}</style>
+<rect width="1200" height="720" rx="32" fill="#102a33"/><rect x="28" y="28" width="1144" height="664" rx="22" fill="#193741" stroke="#34535a"/>
+<text x="66" y="79" class="ey">WESTERN US  /  HOURLY PROVENANCE AUDIT</text>
+<text x="66" y="131" class="title">Annual agreement. Hourly disagreement.</text>
+<text x="66" y="165" class="sub">EFS 2020 vs ReEDS 2022  •  11 states  •  2030 / 2040 / 2050</text>
+<line x1="608" y1="204" x2="608" y2="602" stroke="#3b5d64" stroke-width="2"/>
+<text x="68" y="211" class="panel">01  Source-index displacement</text><text x="648" y="211" class="panel">02  Idaho: coefficients ≠ shares</text>
+<text x="68" y="239" class="lab">AZ</text><rect x="122" y="225" width="154" height="19" rx="6" fill="#278b89"/><text x="284" y="239" class="num">−2 h</text>
+<text x="68" y="270" class="lab">CO</text><rect x="122" y="256" width="154" height="19" rx="6" fill="#278b89"/><text x="284" y="270" class="num">−2 h</text>
+<text x="68" y="301" class="lab">MT</text><rect x="122" y="287" width="154" height="19" rx="6" fill="#278b89"/><text x="284" y="301" class="num">−2 h</text>
+<text x="68" y="332" class="lab">NM</text><rect x="122" y="318" width="154" height="19" rx="6" fill="#278b89"/><text x="284" y="332" class="num">−2 h</text>
+<text x="68" y="363" class="lab">UT</text><rect x="122" y="349" width="154" height="19" rx="6" fill="#278b89"/><text x="284" y="363" class="num">−2 h</text>
+<text x="68" y="394" class="lab">WY</text><rect x="122" y="380" width="154" height="19" rx="6" fill="#278b89"/><text x="284" y="394" class="num">−2 h</text>
+<text x="68" y="425" class="lab">CA</text><rect x="122" y="411" width="230" height="19" rx="6" fill="#d39753"/><text x="360" y="425" class="num">−3 h</text>
+<text x="68" y="456" class="lab">NV</text><rect x="122" y="442" width="230" height="19" rx="6" fill="#d39753"/><text x="360" y="456" class="num">−3 h</text>
+<text x="68" y="487" class="lab">OR</text><rect x="122" y="473" width="230" height="19" rx="6" fill="#d39753"/><text x="360" y="487" class="num">−3 h</text>
+<text x="68" y="518" class="lab">WA</text><rect x="122" y="504" width="230" height="19" rx="6" fill="#d39753"/><text x="360" y="518" class="num">−3 h</text>
+<text x="648" y="262" class="lab">Frozen coefficient</text><rect x="648" y="270" width="350" height="17" rx="8" fill="#e8eeef"/><rect x="648" y="270" width="246.83945000000003" height="17" rx="8" fill="#567b9c"/><text x="1012" y="284" class="pct">17.26%</text>
+<text x="648" y="331" class="lab">Same-year fit</text><rect x="648" y="339" width="350" height="17" rx="8" fill="#e8eeef"/><rect x="648" y="339" width="236.77225" height="17" rx="8" fill="#7da9c1"/><text x="1012" y="353" class="pct">16.56%</text>
+<text x="648" y="400" class="lab">p14 county demand</text><rect x="648" y="408" width="350" height="17" rx="8" fill="#e8eeef"/><rect x="648" y="408" width="271.41400000000004" height="17" rx="8" fill="#e1a466"/><text x="1012" y="422" class="pct">18.98%</text>
+<text x="648" y="469" class="lab">Nine Pacific counties</text><rect x="648" y="477" width="350" height="17" rx="8" fill="#e8eeef"/><rect x="648" y="477" width="288.145" height="17" rx="8" fill="#bb7c4f"/><text x="1012" y="491" class="pct">20.15%</text>
+<line x1="66" y1="622" x2="1133" y2="622" stroke="#3b5d64"/>
+<text x="68" y="650" class="note">30 / 33 state-years reach ≈ 0.25 MW post-shift MAE; Idaho remains unresolved.</text>
+<text x="68" y="676" class="note">Indicative p14: 2016–2023 mean 18.98%. Fits are numerical; source clock NOT certified.</text>
+<text x="1050" y="662" font-size="15" fill="#eabf82" font-weight="750">BLOCKED</text>
+</svg>
