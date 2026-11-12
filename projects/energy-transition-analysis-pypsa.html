@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Western US Energy Transition Modeling — PyPSA | Yu Song</title>
-<meta name="description" content="Verified Western energy systems data engineering: 11-state 2030–2050 real EFS scenario source with candidate zonal allocation, 5,665 EIA-860 generators, 63 high-risk interconnection reviews and separate synthetic PyPSA optimization.">
+<meta name="description" content="Source-forensic energy data research: EFS 2020 and ReEDS 2022 hourly alignment across 11 Western states, Idaho p14 external verification, and independently timed real-data sensitivity. Plus PyPSA engineering.">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,8 +12,24 @@
 <section class="casehero"><div class="wrap">
 <div class="eyebrow">Energy systems · Reproducible research · Python · PyPSA · HiGHS</div>
 <h1>Western US Energy Transition Modeling</h1>
-<p class="caselede">Reproducible Western US power-system research: verified 2030–2050 NLR EFS demand-source engineering across 11 states, a separately labeled candidate spatial and fixed-hour alignment study, and official 2024 EIA-860 generator-level intake for 5,665 units. A separate 35-zone PyPSA/HiGHS optimization demonstrates solver behavior with synthetic inputs; the 11-state case has not been admitted as a calibrated dispatch model.</p>
+<p class="caselede">Featured: source-forensic temporal-provenance research (Paper T v20.8.3) showing 2–3 h index displacements between published demand releases, Idaho-specific reconstruction, and explicit refusal of uncertified physical-hour joins. Additional energy-system engineering work: verified 2030–2050 NLR EFS demand-source engineering across 11 states, a separately labeled candidate spatial and fixed-hour alignment study, and official 2024 EIA-860 generator-level intake for 5,665 units. A separate 35-zone PyPSA/HiGHS optimization demonstrates solver behavior with synthetic inputs; the 11-state case has not been admitted as a calibrated dispatch model.</p>
 <div class="actions"><a class="btn primary" href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA">Code &amp; reproducibility ↗</a><a class="btn" href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/actions">Verified CI &amp; artifacts ↗</a></div>
+</div></section>
+<section class="paper-t-showcase" aria-labelledby="paper-t-heading"><div class="wrap">
+<div class="paper-t-kicker">FEATURED RESEARCH / PAPER T · MANUSCRIPT v20.8.3</div>
+<div class="paper-t-lead"><div><h2 id="paper-t-heading">Annual agreement.<br><em>Hourly disagreement.</em></h2><p>Two published electricity-demand releases appear nearly identical at the annual level. A 289,080-value, 11-state source-forensic audit reveals systematic hourly index shifts—and shows why <strong>numerical alignment is not proof of a physical timestamp</strong>.</p></div><div class="paper-t-status"><span class="paper-t-dot"></span> EVIDENCE STATUS<br><strong>Physical join blocked</strong><small>G1 passed · G2–G6 unresolved</small></div></div>
+<div class="paper-t-stats">
+<div><strong>289,080</strong><span>source-hour comparisons</span><small>11 states × 3 projection years</small></div>
+<div><strong>30 / 33</strong><span>rounding-scale matches</span><small>−2 h Mountain · −3 h Pacific</small></div>
+<div><strong>62%</strong><span>Idaho MAE reduction</span><small>Frozen mixture; residual remains</small></div>
+<div><strong>937</strong><span>CI tests passing</span><small>Fully documented GitHub run</small></div></div>
+<figure class="paper-t-feature-visual"><img loading="lazy" src="../assets/figures/paper-t-industrial-provenance.svg" alt="Two-panel scientific chart: ten Western states align after minus two or minus three hour index shifts; Idaho fit coefficients differ from independent county demand shares."><figcaption>Source-index shifts and external Idaho geographic evidence. Numerical agreement cannot authorize weather or generation joins.</figcaption></figure>
+<div class="paper-t-proof-grid">
+<article><span>01 / RELEASE AUDIT</span><h3>Source-to-source identity</h3><p>Annual loads agree closely, yet unshifted hourly MAE spans <strong>67–3,974 MW</strong>. After nonwrapping lag screening, ten states reach roughly <strong>0.25 MW</strong> residual MAE.</p></article>
+<article><span>02 / IDAHO EXCEPTION</span><h3>Geography is not the coefficient</h3><p>The <strong>actual seven-county ReEDS p14</strong> accounts for <strong>18.86–19.08%</strong> of historical estimated Idaho demand, above both the <strong>16.56%</strong> same-year and <strong>17.26%</strong> frozen numeric weights. p14 omits Clearwater and Shoshone.</p></article>
+<article><span>03 / EXTERNAL CONTROLS</span><h3>Checks beyond the model pair</h3><p>Two observed-demand editions return <strong>0 h</strong> lag for three balancing authorities. An AZPS–Phoenix observed-load / irradiance experiment shows peak-net-load proxy sensitivity of <strong>−13.3% to +6.3%</strong> for assumed 2,000 MW solar.</p></article></div>
+<div class="paper-t-boundary"><strong>Publication and evidence boundary</strong><p>Paper T v20.8.3 is a private manuscript candidate, not a published paper or a validated source-hour conversion. The real-data experiment is an illustrative single-site irradiance proxy, not measured PV output or Western dispatch. Source clocks and Idaho's 2022 processing are still subject to publisher clarification.</p></div>
+<div class="paper-t-links"><a href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA" target="_blank" rel="noopener">Full research repository ↗</a><a href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/actions/runs/43122305945" target="_blank" rel="noopener">Corrected p14 reproducibility ↗</a><a href="https://github.com/ys30/Energy-Transition-Analysis-PyPSA/actions/runs/43081016573" target="_blank" rel="noopener">937-test CI record ↗</a></div>
 </div></section>
 <section><div class="wrap">
 <h2>Latest source-backed engineering results — 11-state EFS and official generator inventory</h2>
