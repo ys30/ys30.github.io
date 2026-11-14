@@ -25,7 +25,7 @@
 <body><nav><div class="wrap"><a class="brand" href="../index.html">Yu Song</a><div class="links"><a href="../index.html#work">Selected Work</a><a href="../projects.html">Projects</a><a href="../publications.html">Publications</a><a href="../index.html#contact">Contact</a></div></div></nav>
 <main><section class="casehero"><div class="wrap">
 <div class="eyebrow">Climate intelligence · Energy optimization · Data engineering · Decision support</div>
-<h1>When Climate Stresses Meet Power-System Constraints</h1>
+<h1>When Climate Stresses Meet Grid Constraints</h1>
 <p class="caselede">I built an auditable Python/PyPSA workflow to test how simultaneous heat and low-wind conditions interact with grid resource assumptions—and why the resources included in a model can materially change its conclusions.</p>
 <div class="actions">
 <a class="btn primary" href="https://github.com/ys30/Climate-Grid-Resilience-Research">Explore research code ↗</a>
@@ -54,7 +54,7 @@
 <li><strong>Engineering controls:</strong> retained data lineage, solver outputs, checksum evidence and CI audit reports; distinguished observed data, stipulated assumptions and optimized outputs.</li></ul>
 </section>
 <section class="c1-section">
-<h2>The decision-relevant result: more capacity can change the interaction signal</h2>
+<h2>The decision-relevant result: reserve margins shape compound-stress signals</h2>
 <p>Without added capacity, modeled system-level heat–wind second differences were <strong>8.6–25.2 GWh</strong> across eight week/network cases. An assumed capacity increase reduced the <em>absolute</em> interaction in seven cases, but not all: in Week 2 under illustrative links, the result rose from <strong>16.2 to 18.6 GWh</strong> at +25% capacity. The signed <em>relative</em> interaction increased in all eight cases when moving from 0% to +25%.</p>
 <figure class="c1-figure">
 <img loading="lazy" src="../assets/figures/paper-c1-capacity-interaction.svg" alt="Replotted paper Table 3: model interaction in GWh for four July 2024 weeks, comparing isolated and illustrative-link networks at zero, 25 percent and 50 percent extra hypothetical capacity">
@@ -69,13 +69,13 @@
 </tbody></table>
 </section>
 <section class="c1-section">
-<h2>How I would use this in an industry workflow</h2>
+<h2>Business value: resource-aware climate scenario screening</h2>
 <p>The transferable deliverable is an <strong>evidence-gated scenario-testing framework</strong>: first validate source timestamps and coverage; then label structural assumptions; compare scenarios on multiple resource configurations; audit model sensitivities; and show decision-makers which conclusions survive those changes. The same workflow patterns apply to climate-tech analytics, grid planning support, renewable portfolio screening and model-validation pipelines.</p>
 <div class="c1-note"><strong>Scope and model-risk disclosure.</strong> The core model intentionally represents generic thermal and wind generation, not a full operating fleet. Hydropower, solar, nuclear and storage are not separately included in the main factorial optimization; network transfer limits and heat/wind response functions are illustrative. Computed shortages are conditional screening outputs—<strong>not actual outages, EENS, calibrated BA adequacy or future blackout predictions</strong>. The separate Grand Coulee model adds assumed hydro and storage and must not be conflated with the four-week model.</div>
 </section>
 <section class="c1-section">
 <h2>Research provenance and availability</h2>
-<p><strong>Sole-author research:</strong> Yu Song. Paper C-1 manuscript: <em>When Capacity Representation Changes Compound Heat–Wind Stress Interactions: A Source-Audited Power-System Screening Study</em> (journal preparation; not yet published). The E1–E3 computational findings are frozen. The latest manuscript includes four result tables, five figures and supplementary evidence.</p>
+<p><strong>Sole-author research:</strong> Yu Song. Paper C-1 manuscript: <em>Modeled compound heat and low-wind stress depends on resource representation: a reserve-margin explanation for four western US balancing authorities</em> (journal preparation; not yet published). The E1–E3 computational findings are frozen. The latest manuscript includes four result tables, five figures and supplementary evidence.</p>
 <p><a href="https://github.com/ys30/Climate-Grid-Resilience-Research/tree/6b549a6612f280646389f87bfc35453dd0e5d7dc">Frozen research-source commit</a> · <a href="https://github.com/ys30/Climate-Grid-Resilience-Research/blob/main/docs/PAPER_C1_ARCHIVE.md">Source and scope audit</a>. A Zenodo research-data record is being prepared; its reserved DOI is not yet cited as a published dataset.</p>
 <p><strong>Related archived demonstration:</strong> the earlier <a href="https://github.com/ys30/Climate-Grid-Resilience-PyPSA">four-BA portfolio prototype</a> remains available separately; its older AZPS and SRP results should not be mixed with the final Paper C-1 factorial evidence. Future climate attribution/prediction work (Project C-2) is a separate research line and is not described here as completed.</p>
 </section>
