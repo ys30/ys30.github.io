@@ -96,3 +96,12 @@
 .card.paper-t-home-card .visual{background:#122d37;padding:0;display:block;height:195px;overflow:hidden}
 .card.paper-t-home-card .visual img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 @media(max-width:760px){.paper-t-lead,.paper-t-proof-grid{grid-template-columns:1fr}.paper-t-stats{grid-template-columns:repeat(2,1fr)}.paper-t-showcase{padding:52px 0}.paper-t-lead h2{font-size:42px}.paper-t-lead p{font-size:16px}.card.paper-t-home-card .visual{height:165px}}
+
+/* Prevent wide SVG thumbnails from expanding the project-card CSS grid.
+   Applied globally to homepage and project index; responsive layout retained. */
+.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid>.cardlink,.grid>.card,.cardlink .card,.card .visual,.card .cardbody{min-width:0;max-width:100%}
+.card .visual{overflow:hidden}
+.card .visual img{display:block;max-width:100%;width:100%;height:100%;object-fit:contain;object-position:center}
+.card .visual b{overflow-wrap:anywhere}
+@media(max-width:760px){.grid{grid-template-columns:minmax(0,1fr)}}
