@@ -1,86 +1,82 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Geospatial ML & Ecological Decision Analytics — Yu Song</title>
-<meta name="description" content="Industry-facing geospatial ML case study: 23 spatial validation schemes, 13 model configurations, interpretable baselines and decision-focused rare-taxon screening.">
-<link rel="stylesheet" href="../style.css"></head><body>
+<title>Geospatial ML & Decision Analytics | Yu Song</title>
+<meta name="description" content="An industry-focused geospatial ML case study: 23 spatial validation designs, interpretable baselines, model robustness, and fixed-budget environmental decisions.">
+<link rel="stylesheet" href="../style.css">
+<style>
+:root{--ink:#16283b;--muted:#536579;--teal:#0d817d;--navy:#173e60;--sand:#f5f8f9;--line:#dbe5ea}
+.sdm{max-width:1040px;margin:auto;padding:38px 22px 75px;color:var(--ink)}
+.sdm *{box-sizing:border-box}.sdm .ey{font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--teal)}
+.sdm h1{font-size:clamp(34px,5vw,57px);line-height:1.07;letter-spacing:-.035em;margin:12px 0 16px;max-width:850px}
+.sdm h2{font-size:clamp(23px,3vw,31px);letter-spacing:-.025em;margin:0 0 14px}
+.sdm h3{font-size:18px;margin:0 0 8px}.sdm p{line-height:1.65}.sdm .lead{font-size:19px;color:var(--muted);max-width:760px}
+.sdm .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:29px 0}
+.sdm .kpi{background:var(--sand);border:1px solid var(--line);border-radius:13px;padding:19px}
+.sdm .kpi b{display:block;font-size:32px;line-height:1.1;color:var(--navy);font-variant-numeric:tabular-nums}.sdm .kpi span{display:block;font-size:12px;line-height:1.45;color:var(--muted);margin-top:9px}
+.sdm .section{margin:48px 0}.sdm .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sdm .panel{border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff;min-width:0}
+.sdm .panel.soft{background:var(--sand)}.sdm .mini{font-size:13px;color:var(--muted)}
+.sdm .plot{width:100%;height:auto;display:block}.sdm figure{margin:0}.sdm figcaption{font-size:12px;color:var(--muted);line-height:1.5;margin-top:10px}
+.sdm .takeaway{border-left:4px solid var(--teal);padding:13px 18px;background:#eef8f6;border-radius:0 10px 10px 0}
+.sdm .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.sdm .step{border:1px solid var(--line);border-radius:12px;padding:15px;background:var(--sand)}.sdm .step strong{display:block;font-size:14px}.sdm .step small{display:block;color:var(--muted);line-height:1.5;margin-top:6px}
+.sdm .pill{display:inline-block;border:1px solid #b8d8d5;color:#116e69;border-radius:20px;padding:6px 11px;font-size:12px;font-weight:650;margin:0 5px 7px 0}
+.sdm .btnline{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.sdm .action{display:inline-block;padding:11px 16px;border-radius:9px;background:var(--navy);color:#fff;text-decoration:none;font-weight:650}.sdm .action.secondary{background:#e9f1f5;color:var(--navy)}
+.sdm .barlabel{font-size:12px;fill:var(--muted)}.sdm .big{font-size:16px;font-weight:750;fill:var(--ink)}
+.sdm details{border-top:1px solid var(--line);padding:17px 0}.sdm summary{font-weight:700;cursor:pointer}.sdm .note{font-size:12px;color:var(--muted)}
+@media(max-width:700px){.sdm .kpis{grid-template-columns:repeat(2,1fr)}.sdm .grid2{grid-template-columns:1fr}.sdm .steps{grid-template-columns:repeat(2,1fr)}.sdm .panel{padding:16px}.sdm{padding:25px 16px 50px}}
+</style></head><body>
 <nav><div class="wrap"><a class="brand" href="../index.html">Yu Song</a><div class="links"><a href="../index.html#work">Work</a><a href="../projects.html">Projects</a><a href="../publications.html">Publications</a><a href="../index.html#contact">Contact</a></div></div></nav>
-<main><section><div class="wrap">
-<div class="eyebrow">Ecological data science · Geospatial ML · Reproducible research</div>
-<h1>Species Distribution Modeling in New South Wales</h1>
-<p class="lede">Comparing XGBoost, MaxEnt and hierarchical Bayesian models on the same geographically held-out survey records—and translating predictions into practical rare-taxon survey priorities.</p>
-<div class="actions"><a class="btn primary" href="https://github.com/ys30/Ecological-SDM-XGBoost">Code &amp; verified results</a><a class="btn" href="../projects.html">All projects</a></div>
-<h2>Industry case study: selecting models that generalize geographically</h2>
-<p><strong>The problem:</strong> A high machine-learning score can hide geographic leakage, differences in model inputs, or an evaluation metric that rewards common categories instead of useful site rankings. I designed a reproducible spatial benchmarking workflow to separate those effects and connect model scores to field decisions.</p>
-<div style="overflow-x:auto"><table><thead><tr><th>Study scale</th><th>Validation</th><th>Model families</th><th>Practical application</th></tr></thead><tbody><tr><td><strong>1,167 plots</strong><br>8 taxa · 9,336 records</td><td><strong>23 spatial schemes</strong><br>Two primary partition designs</td><td><strong>13 configurations</strong><br>GLM, XGBoost, MaxEnt, Bayesian</td><td><strong>Top-k screening</strong><br>Rare-taxon survey prioritization</td></tr></tbody></table></div>
-<h2>Three findings that translate to applied ML</h2>
-<div style="overflow-x:auto"><table><thead><tr><th>Finding</th><th>Evidence</th><th>Why it matters</th></tr></thead><tbody>
-<tr><td><strong>Interpretable baselines can win</strong></td><td>Per-taxon quadratic logistic regression led 18/23 spatial schemes</td><td>Compare complex models against well-specified, simpler alternatives</td></tr>
-<tr><td><strong>Geography changes the leaderboard</strong></td><td>Pooled XGBoost surpassed MaxEnt under quantile blocks but trailed under k-means</td><td>Evaluate models across realistic spatial splits, not just a single random split</td></tr>
-<tr><td><strong>Metrics should match decisions</strong></td><td>Cross-taxon pooled AUC gained 0.07–0.11 from aggregation; prevalence-only score reached 0.77</td><td>Choose per-group ranking, calibration, or fixed-budget recall according to the use case</td></tr>
-</tbody></table></div>
-<h2>Visual evidence</h2>
-<figure><img style="max-width:100%;height:auto" loading="lazy" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/figure1_geographic_nsw_holdouts.png" alt="Map of New South Wales plots and geographic spatial-validation folds"><figcaption><strong>Spatial holdouts.</strong> Entire geographic blocks are withheld to assess within-region generalization; this is not external-region validation.</figcaption></figure>
-<figure><img style="max-width:100%;height:auto" loading="lazy" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/23_three_model_auc_publication.svg" alt="Historical matched model comparison across species"><figcaption><strong>Historical matched comparison.</strong> Taxon-level AUC varies across XGBoost, MaxEnt and hierarchical Bayesian pipelines. This is a historical three-model figure, distinct from the newer 13-configuration manuscript analysis.</figcaption></figure>
-<figure><img style="max-width:100%;height:auto" loading="lazy" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/24_rare_species_retrieval_publication.svg" alt="Recorded detections recovered by survey shortlist budget"><figcaption><strong>Decision support.</strong> Retrospective top-10, top-25 and top-50 survey shortlists compared against random expectations. Results vary by taxon and should not be interpreted as future field detection rates.</figcaption></figure>
-<h2>What changed after spatial hyperparameter tuning?</h2>
-<p>In an <strong>exploratory</strong> nested spatial tuning analysis covering quantile blocks, k-means and 10-km-buffered quantile blocks, tuned per-taxon XGBoost remained approximately <strong>0.021–0.034 within-taxon AUC below</strong> the quadratic logistic baseline. The difference between tuned pooled and per-taxon XGBoost was under 0.01 AUC across these designs. The expanded results are drawn from the v6.25b author manuscript; a fresh public CI reproduction is still pending.</p>
-<p><strong>Applied capabilities:</strong> Python, R, XGBoost, Bayesian multilevel models, geographic holdout design, proper scoring rules, uncertainty analysis, ML benchmarking, reproducible pipelines and decision-focused evaluation.</p>
-<p><small><strong>Study boundaries:</strong> One NSW survey, eight anonymized taxa, retrospective within-region validation; sparse taxa have few detections, and the study does not demonstrate prospective deployment or external-region transfer.</small></p>
-<h2>Detailed technical evidence</h2>
-<h2>1. Where and how were models validated?</h2>
-<p>Public <code>disdat</code> NSW open-forest survey data. Each plot and all its taxon records stay together in one held-out fold. A two-dimensional 4×4 quantile grid assigns entire cells to five folds. The map uses actual survey coordinates and geographic boundaries.</p>
-<figure><img style="max-width:100%;height:auto" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/figure1_geographic_nsw_holdouts.png" alt="Figure 1: NSW geographic context and five spatial validation folds"><figcaption><strong>Figure 1.</strong> NSW survey locations and five spatial holdout folds. These folds are not distance-buffered; 218 of 1,167 held-out plots lie within 5 km of a training plot. The study tests within-region prediction, not transfer to an independent landscape.</figcaption></figure>
-<h2>2. What did the matched comparison find?</h2>
-<p>The same 23 eligible taxon–fold test records were used to compare three implemented pipelines across five evaluable taxa.</p>
-<div style="overflow-x:auto"><table><thead><tr><th>Model pipeline</th><th>Mean ROC AUC</th><th>Key distinction</th></tr></thead><tbody>
-<tr><td><strong>Pooled XGBoost</strong></td><td><strong>0.8016</strong></td><td>Boosted trees; environmental and taxon-identity inputs</td></tr>
-<tr><td>Species-specific MaxEnt</td><td>0.7865</td><td>Regularized environmental suitability</td></tr>
-<tr><td>Hierarchical Bayesian</td><td>0.7610</td><td>Taxon-level partial pooling</td></tr>
-</tbody></table></div>
-<p><strong>Key result:</strong> XGBoost exceeded MaxEnt by a mean paired AUC of <strong>+0.0151</strong>. This is a modest descriptive advantage, <em>not</em> proof that boosted trees outperform other SDM algorithms in general: the pipelines use different predictor information and score interpretations.</p>
-<figure><img style="max-width:100%;height:auto" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/23_three_model_auc_publication.svg" alt="Matched taxon-level ROC AUC across three species distribution modeling pipelines"><figcaption><strong>Figure 2.</strong> Matched discrimination by taxon; the relative ranking varies across taxa.</figcaption></figure>
-<h2>3. What changes the interpretation?</h2>
-<p><strong>Feature representation:</strong> Fold-local categorical encoding produced similar full-feature XGBoost discrimination. Removing taxon identity sharply reduced pooled-model performance, but also changed the prediction task; it cannot be interpreted as a pure encoding effect.</p>
-<p><strong>Model selection:</strong> The archived spatial XGBoost benchmark used a fixed 300-round configuration, not nested spatial hyperparameter tuning. Bayesian convergence checks passed in independent longer-chain fits, while the matched comparison uses archived original-fit predictions.</p>
-<h2>4. Bayesian model-specification robustness</h2>
-<p>We extended the hierarchical Bayesian pipeline with quadratic rainfall and temperature responses and a separate nonpooled specification. The extensions were assessed using the same five geographic folds—not a second independent dataset. AUC/AP are defined for 30 taxon–fold cells in the expanded Bayesian analysis; the original three-pipeline comparison uses 23 matched cells.</p>
-<div style="overflow-x:auto"><table><thead><tr><th>Quadratic Bayesian vs archived Bayesian</th><th>Original 23 matched cells</th><th>Expanded 30 AUC/AP cells</th></tr></thead><tbody>
-<tr><td>Mean paired ΔROC AUC</td><td><strong>+0.0453</strong></td><td>+0.0378</td></tr>
-<tr><td>Mean paired Δaverage precision</td><td><strong>+0.0831</strong></td><td>+0.0813</td></tr>
-<tr><td>Mean paired ΔBrier score</td><td><strong>−0.0118</strong></td><td>−0.0068 (40 cells)</td></tr>
-</tbody></table></div>
-<p><strong>Probability quality:</strong> Pooled out-of-fold Brier score improved from 0.06084 to 0.05404, and 10-bin expected calibration error from 0.01985 to 0.01255. The mean five-nearest-neighbor residual Moran's I fell from 0.341 to 0.291, although substantial positive spatial autocorrelation remained. These are internal spatial-holdout diagnostics, not external geographic validation.</p>
-<p><strong>Influence check:</strong> Excluding taxon nsw18, the quadratic model retained a mean paired AUC gain of +0.0286 and AP gain of +0.0663. Improvements were heterogeneous across taxa. The nonpooled variant did not show comparable overall predictive gains, despite improved top-25 retrieval for one rare taxon.</p>
-<p><strong>Independent refitting under a second spatial partition:</strong> We generated 15 outcome-blind geographic clusters, allocated them to five new folds, and refitted both linear and quadratic hierarchical Bayesian models (10 successful jobs). Across 34 evaluable taxon–fold cells, quadratic terms improved mean paired ROC AUC by <strong>+0.0168</strong> and average precision by <strong>+0.0230</strong>; across all 40 cells, mean paired Brier decreased by <strong>0.0065</strong>. Pooled ROC AUC increased from <strong>0.8856 to 0.8999</strong>, and pooled average precision from <strong>0.3360 to 0.4087</strong>. This confirms favorable average results under an alternative fold geometry within the same dataset, not external transfer. <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/ALTERNATIVE_SPATIAL_BAYESIAN_VERIFIED.md">Second-partition verified results</a>. A subsequent <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/SECOND_PARTITION_EXTENDED_DIAGNOSTICS_VERIFIED.md">MCMC and calibration audit</a> confirmed all convergence thresholds (max Rhat 1.0082; no divergences), lower pooled ECE10 (Δ −0.00581), and lower mean held-out residual Moran's I (0.2815 to 0.2471). Improvements were heterogeneous: Brier improved for 5 of 8 anonymous taxa, concentrated in nsw18 and nsw24, and positive residual spatial autocorrelation remained. <p><strong>Matched four-model benchmark:</strong> On 9,336 identical geographically held-out plot–taxon records, the per-taxon quadratic regularized GLM achieved the highest pooled discrimination (ROC AUC <strong>0.9022</strong>, average precision <strong>0.4284</strong>), while the hierarchical quadratic Bayesian model had the lowest pooled probability errors (Brier <strong>0.05591</strong>, log loss <strong>0.18730</strong>). The paired mean GLM-minus-Bayesian quadratic differences were ΔAUC +0.00683 and ΔAP +0.02460 across 34 evaluable taxon–fold cells; these are descriptive within-dataset comparisons, not statistical significance or external validation. <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/FOUR_MODEL_ALTERNATIVE_SPATIAL_VERIFIED.md">Verified four-model audit</a>.</p>
-A <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/SECOND_PARTITION_TAXON_EXCLUSION_VERIFIED.md">taxon-influence check</a> further showed that excluding nsw18 and nsw24 from held-out evaluation reverses the pooled quadratic advantage (ΔAUC −0.0069, ΔAP −0.0314, ΔBrier +0.00028). This is a post-hoc evaluation subset, not a model retrained without those taxa; the scientific interpretation is taxon-dependent nonlinear benefits, not universal superiority.</p>
-<p><strong>Validation limitation:</strong> The 30 expanded taxon–fold cells overlap with the original 23 and cannot be counted as an independent replication. Additional spatial partitioning or independent-region validation remains future work. <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/BAYESIAN_EXTENSION_CONSOLIDATED_VERIFIED.md">Verified extension results and methods</a>.</p>
-<h2>5. Can predictions make rare-taxon surveys more efficient?</h2>
-<p><strong>The practical question:</strong> When a taxon has too few detections for reliable fold-level ROC AUC, can a model rank a limited number of plots to recover more of the recorded detections than random selection? This is a <strong>retrospective, fixed-budget prioritization test</strong>—not a new occupancy model or a prospective field trial.</p>
-<p>For each of the five geographic folds, the Bayesian model ranked the held-out plots. We selected the top 10, 25 or 50 per fold and counted recorded detections captured. The random benchmark uses each fold's actual prevalence and the same screening budget. A top-25 strategy screens <strong>125 of 1,167 plots (10.7%)</strong> across folds.</p>
-<div style="overflow-x:auto"><table><thead><tr><th>Anonymous taxon</th><th>Recorded detections</th><th>Top-25 captured</th><th>Recall</th><th>Expected random captured</th><th>Enrichment</th></tr></thead><tbody>
-<tr><td>nsw19</td><td>8</td><td>3</td><td>37.5%</td><td>0.85</td><td>3.5×</td></tr>
-<tr><td>nsw20</td><td>18</td><td>17</td><td>94.4%</td><td>1.91</td><td>8.9×</td></tr>
-<tr><td>nsw22</td><td>6</td><td>4</td><td>66.7%</td><td>0.64</td><td>6.2×</td></tr>
-</tbody></table></div>
-<p><strong>Interpretation:</strong> The ranking concentrated known detections in a small fraction of the surveyed plots, particularly for nsw20. But nsw19 recovered only 3 of 8 detections at the same budget. With just 6–18 positives per taxon, each detection materially changes the percentage; these are descriptive results, not robust estimates of future detection rates.</p>
-<figure><img style="max-width:100%;height:auto" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/24_rare_species_retrieval_publication.svg" alt="Anonymized nsw19, nsw20 and nsw22 Bayesian retrieval versus random expectation for top-10, top-25 and top-50 budgets"><figcaption><strong>Figure 3.</strong> Fraction of recorded detections recovered under increasing screening budgets versus fold-specific random expectation. All taxa use anonymous IDs.</figcaption></figure>
-<p><strong>What this means for conservation teams:</strong> A ranked shortlist could help plan targeted resurvey visits when budgets are limited. Before field deployment, the model needs independent prospective validation, imperfect-detection assessment, accessibility/cost constraints and checks that selected plots cover the landscape rather than clustering in one area. <strong>High retrospective enrichment is not evidence of higher occupancy or confirmed field-survey yield.</strong></p>
-<h2>5. Buffered spatial robustness: model ranking depends on the metric</h2>
-<p>In a separate <strong>alternative five-fold partition</strong>, we excluded training plots within nominal 5, 10 or 20 km of each held-out plot, then refit linear and quadratic regularized GLMs and hierarchical Bayesian models. Each model was evaluated on the same <strong>9,336 held-out plot–taxon records</strong> at each buffer radius. These results are distinct from the original three-model comparison above.</p>
-<div style="overflow-x:auto"><table><thead><tr><th>Nominal buffer</th><th>Quadratic model</th><th>ROC AUC ↑</th><th>Average precision ↑</th><th>Brier ↓</th><th>Log loss ↓</th></tr></thead><tbody>
-<tr><td>5 km</td><td>Regularized GLM</td><td><strong>0.9027</strong></td><td><strong>0.4322</strong></td><td>0.0561</td><td>0.1951</td></tr>
-<tr><td>5 km</td><td>Hierarchical Bayesian</td><td>0.9008</td><td>0.4109</td><td><strong>0.0556</strong></td><td><strong>0.1863</strong></td></tr>
-<tr><td>10 km</td><td>Regularized GLM</td><td><strong>0.8994</strong></td><td><strong>0.4238</strong></td><td>0.0566</td><td>0.1975</td></tr>
-<tr><td>10 km</td><td>Hierarchical Bayesian</td><td>0.8993</td><td>0.4088</td><td><strong>0.0559</strong></td><td><strong>0.1877</strong></td></tr>
-<tr><td>20 km</td><td>Regularized GLM</td><td><strong>0.8913</strong></td><td><strong>0.4153</strong></td><td>0.0567</td><td>0.2098</td></tr>
-<tr><td>20 km</td><td>Hierarchical Bayesian</td><td>0.8883</td><td>0.4082</td><td><strong>0.0559</strong></td><td><strong>0.1980</strong></td></tr>
-</tbody></table></div>
-<p><strong>Research takeaway:</strong> GLM showed higher pooled discrimination and precision, whereas Bayesian partial pooling showed lower pooled probability error. Across 20,000 bootstrap resamples of eight anonymized taxa, <strong>all 24 descriptive 95% intervals for paired GLM–Bayesian metric differences included zero</strong>; no general model superiority is claimed. Larger buffers also remove more training plots.</p>
-<p><strong>Distance-quality check:</strong> An audit of 1,167 plot nearest-neighbor pairs found a median planar-to-spherical distance ratio of 1.0041, consistent with approximately metre-scale XY coordinates; the original projection metadata are not independently verified. This is within-dataset spatial robustness, not external geographic validation.</p>
-<p><strong>Reproducible evidence:</strong> <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/BUFFERED_FOUR_MODEL_MATCHED_VERIFIED.md">Matched buffer comparison</a> · <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/BUFFERED_TAXON_BOOTSTRAP_VERIFIED.md">Taxon bootstrap uncertainty</a> · <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/COORDINATE_SCALE_VERIFIED.md">Coordinate distance-scale audit</a>.</p>
-<h2>Skills and research value</h2>
-<p><strong>Methods:</strong> R, XGBoost, maxnet / MaxEnt, brms Bayesian hierarchical modeling, geospatial cross-validation, ROC/PR metrics, model diagnostics, sensitivity analysis and GitHub Actions.</p>
-<p><strong>Practical takeaway:</strong> Match model choice to available predictors, spatial validation geometry and survey decisions—not a single leaderboard score. Follow-up work should test independent regions, harmonized model inputs and prospective survey costs.</p>
-<p><strong>Evidence:</strong> <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/matched_bayesian_maxent_xgboost_folds.csv">Matched fold metrics</a> · <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/scripts/41_xgboost_spatial_encoding_sensitivity.R">Feature sensitivity code</a> · <a href="https://github.com/ys30/Ecological-SDM-XGBoost/blob/main/results/bayesian_rare_species_within_fold_retrieval.csv">Rare-taxon retrieval</a> · <a href="https://github.com/ys30/Ecological-SDM-XGBoost">Full README</a>.</p>
-<p><small>The associated journal manuscript and supplementary documents are maintained privately; public repository documents are code, results and historical working notes.</small></p>
-</div></section></main></body></html>
+<main class="sdm">
+<header><div class="ey">Applied machine learning · Geospatial validation · Decision analytics</div>
+<h1>When simpler models outperform complex ML</h1>
+<p class="lead">I built a spatially robust species-distribution modeling benchmark to answer a practical question: <strong>which predictions remain useful when evaluation geography, model complexity, and field-survey budgets change?</strong></p>
+<div class="btnline"><a class="action" href="https://github.com/ys30/Ecological-SDM-XGBoost">Explore code &amp; evidence</a><a class="action secondary" href="#method">How I evaluated models</a></div></header>
+<section class="kpis" aria-label="Project at a glance">
+<div class="kpi"><b>18 / 23</b><span>Spatial schemes led by quadratic logistic regression</span></div>
+<div class="kpi"><b>13</b><span>Model configurations evaluated</span></div>
+<div class="kpi"><b>1,167</b><span>Survey plots across New South Wales</span></div>
+<div class="kpi"><b>8</b><span>Anonymized ecological taxa</span></div>
+</section>
+<div class="takeaway"><strong>Key result:</strong> A well-specified, interpretable baseline often outperformed more complex alternatives. Geographic validation design and metric choice could change model rankings. These are retrospective within-region findings, not external deployment claims.</div>
+<section class="section"><h2>Three results worth remembering</h2>
+<div class="grid2">
+<div class="panel"><h3>01 · Complexity is not a free upgrade</h3>
+<svg class="plot" viewBox="0 0 440 165" role="img" aria-label="Quadratic logistic regression led 18 of 23 spatial validation schemes; other configurations led 5">
+<text x="0" y="20" class="barlabel">Spatial schemes with top-ranked quadratic GLM</text>
+<rect x="0" y="39" width="400" height="30" rx="7" fill="#e4edf0"/><rect x="0" y="39" width="313" height="30" rx="7" fill="#0d817d"/>
+<text x="10" y="60" font-size="16" font-weight="750" fill="#fff">18 schemes</text><text x="323" y="60" font-size="14" fill="#173e60">5</text>
+<text x="0" y="99" class="barlabel">Quadratic logistic regression</text><rect x="285" y="87" width="13" height="13" rx="2" fill="#0d817d"/>
+<text x="0" y="126" class="barlabel">Other leaders</text><rect x="285" y="114" width="13" height="13" rx="2" fill="#e4edf0"/>
+<text x="0" y="155" class="barlabel">Count of leading schemes, not a performance effect size</text>
+</svg><p class="mini">Industry lesson: benchmark advanced ML against strong, interpretable baselines—not just a linear straw man.</p></div>
+<div class="panel"><h3>02 · Spatial validation changes the answer</h3>
+<figure><img class="plot" loading="lazy" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/figure1_geographic_nsw_holdouts.png" alt="NSW survey plot geography and spatial holdout folds"><figcaption>Geographically held-out plots, not randomly mixed nearby observations. Alternative geographic partitions and training buffers were also evaluated.</figcaption></figure>
+<p class="mini">Industry lesson: evaluate where a model will actually be used; geographic leakage can distort comparisons.</p></div>
+<div class="panel"><h3>03 · Good AUC is not the whole decision</h3>
+<svg class="plot" viewBox="0 0 440 190" role="img" aria-label="Retrospective top-25-per-fold detections recovered: nsw19 3 of 8, nsw20 17 of 18, nsw22 4 of 6">
+<text x="0" y="19" class="barlabel">Recorded detections recovered · top 25 plots per fold</text>
+<text x="0" y="54" class="barlabel">nsw19</text><rect x="78" y="39" width="280" height="20" rx="5" fill="#e5edf0"/><rect x="78" y="39" width="105" height="20" rx="5" fill="#0d817d"/><text x="367" y="54" class="barlabel">3/8</text><text x="0" y="100" class="barlabel">nsw20</text><rect x="78" y="85" width="280" height="20" rx="5" fill="#e5edf0"/><rect x="78" y="85" width="264.44444444444446" height="20" rx="5" fill="#0d817d"/><text x="367" y="100" class="barlabel">17/18</text><text x="0" y="146" class="barlabel">nsw22</text><rect x="78" y="131" width="280" height="20" rx="5" fill="#e5edf0"/><rect x="78" y="131" width="186.66666666666666" height="20" rx="5" fill="#0d817d"/><text x="367" y="146" class="barlabel">4/6</text>
+</svg><p class="mini">The same survey budget recovered 17/18 recorded detections for one rare taxon, but only 3/8 for another. Historical retrospective retrieval, not a prospective field result.</p></div>
+<div class="panel"><h3>04 · Hyperparameter tuning needs honest evaluation</h3>
+<p>Exploratory nested spatial tuning narrowed the difference between pooled and taxon-specific XGBoost, but tuned XGBoost did not overtake the quadratic logistic baseline on the reported within-taxon AUC comparisons.</p>
+<p class="mini">The newer v6.25b tuning results are pre-submission and still awaiting a fresh independently verified public CI replay. No unpublished figure is presented as a verified public artifact.</p>
+<div class="takeaway"><strong>Engineering principle:</strong> fit, tune and evaluate within correctly separated spatial data.</div></div>
+</div></section>
+<section class="section" id="method"><h2>How the evaluation works</h2>
+<div class="steps">
+<div class="step"><strong>1. Survey data</strong><small>1,167 plots, eight taxa and environmental covariates</small></div>
+<div class="step"><strong>2. Spatial holdouts</strong><small>Geographic blocks / clusters; sensitivity to distance buffers</small></div>
+<div class="step"><strong>3. Model comparisons</strong><small>Logistic GLM, XGBoost, MaxEnt and Bayesian models</small></div>
+<div class="step"><strong>4. Decision metrics</strong><small>Within-taxon AUC, log loss, calibration and top-k retrieval</small></div>
+</div>
+<p class="mini">Not every historical pipeline uses identical inputs or tuning protocols; matched comparisons are interpreted separately from broader sensitivity analyses. The nested-tuning extension was exploratory and is not described as a prespecified confirmatory experiment.</p></section>
+<section class="section"><h2>What this demonstrates for industry</h2>
+<span class="pill">Geospatial machine learning</span><span class="pill">Leakage-aware cross-validation</span><span class="pill">Python + R pipelines</span><span class="pill">XGBoost &amp; Bayesian modeling</span><span class="pill">Model calibration</span><span class="pill">Decision-focused evaluation</span><span class="pill">Reproducible research</span>
+<p>These methods transfer to environmental risk mapping, site selection, conservation planning and spatially structured predictive analytics: define the decision, build credible baselines, test robustness across geography and report uncertainty rather than a single leaderboard.</p></section>
+<section class="section"><h2>Technical deep dive &amp; source evidence</h2>
+<details><summary>Historical matched model comparison</summary><p>The original matched three-pipeline analysis evaluated 23 eligible taxon–fold cells across five taxa: pooled XGBoost AUC 0.8016, MaxEnt 0.7865, hierarchical Bayesian 0.7610. Different feature sets mean this is a pipeline comparison, not an isolated algorithm effect.</p><figure><img class="plot" loading="lazy" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/23_three_model_auc_publication.svg" alt="Historical matched taxon-level AUC for three modeling pipelines"><figcaption>Historical three-pipeline AUC figure; not the 13-configuration v6.25b result.</figcaption></figure></details>
+<details><summary>Rare-taxon decision support</summary><p>At 25 plots per fold, 125/1,167 plots (10.7%) were selected in total. Bayesian retrospective detection recovery was 3/8 (nsw19), 17/18 (nsw20), and 4/6 (nsw22). Observed non-detections are not detection-corrected absences.</p><figure><img class="plot" loading="lazy" src="https://raw.githubusercontent.com/ys30/Ecological-SDM-XGBoost/main/results/figures/24_rare_species_retrieval_publication.svg" alt="Rare taxon recall by top-k survey budget"><figcaption>Historical within-fold top-k detection recovery versus random expectation.</figcaption></figure></details>
+<details><summary>Spatial uncertainty, calibration and limitations</summary><p>Second-partition and buffered sensitivity analyses compared model discrimination, proper probability scores and residual spatial autocorrelation. Eight-taxon bootstrap intervals are exploratory, and some rare taxon–fold cells do not support defined AUC. Independent-region validation, prospective field outcomes, and full v6.25b CI reproduction remain open.</p></details>
+<div class="btnline"><a class="action" href="https://github.com/ys30/Ecological-SDM-XGBoost">Source code, audit trails &amp; historical figures</a><a class="action secondary" href="../projects.html">More projects</a></div>
+<p class="note">Pre-submission research case study. Figures and numerical comparisons are labeled by experiment scope; no DOI, journal acceptance, external validation or prospective deployment is claimed.</p>
+</section></main></body></html>
